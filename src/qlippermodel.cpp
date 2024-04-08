@@ -210,12 +210,18 @@ void QlipperModel::clearHistory()
     m_dynamic.clear();
     endRemoveRows();
     ClipboardContent tmp;
-    tmp["text/plain"] = tr("Welcome to the Qlipper clipboard history applet").toUtf8();
-    QlipperItem item(QClipboard::Clipboard, QlipperItem::PlainText, tmp);
-    beginInsertRows(QModelIndex(), sticky_count, sticky_count);
-    m_dynamic.append(item);
-    endInsertRows();
-    m_currentIndex = index(sticky_count);
+    
+    /**
+     * time: 2024-04-08 17:44 
+     * author: sunlight0258
+     * description: temporarily comment out the following code. The effect: after clearing the pasteboard, the default welcome record will not appear.
+     */
+    //tmp["text/plain"] = tr("Welcome to the Qlipper clipboard history applet").toUtf8();
+    //QlipperItem item(QClipboard::Clipboard, QlipperItem::PlainText, tmp);
+    //beginInsertRows(QModelIndex(), sticky_count, sticky_count);
+    //m_dynamic.append(item);
+    //endInsertRows();
+    //m_currentIndex = index(sticky_count);
 }
 
 void QlipperModel::indexTriggered(const QModelIndex & index)
